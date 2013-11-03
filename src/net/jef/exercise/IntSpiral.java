@@ -40,7 +40,7 @@ public class IntSpiral {
 
     /**
      * Takes the number param and creates the smallest grid required to hold all sequential numbers starting at
-     * zero and ending at the number supplied.  Counting starts in the center position, if possible and radiates
+     * zero and ending at the number supplied.  Counting starts in the center position if possible, and radiates
      * out clockwise going in the directional order of RIGHT, DOWN, LEFT, then UP.
      *
      * @param number the number to count up to in a spiral fashion
