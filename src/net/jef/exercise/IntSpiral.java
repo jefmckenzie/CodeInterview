@@ -75,22 +75,22 @@ public class IntSpiral {
         while(currentNumber <= number) {
             // The boundaries for each layer will be between (origin - layer) and (origin + layer).
             // Go RIGHT to the boundary.
-            while(currentX < originX + layer && currentNumber <= number) {
+            while((currentX < (originX + layer)) && (currentNumber <= number)) {
                 currentX++;
                 grid[currentY][currentX] = currentNumber++;
             }
             // Go DOWN to the boundary.
-            while(currentY < originY + layer && currentNumber <= number) {
+            while((currentY < (originY + layer)) && (currentNumber <= number)) {
                 currentY++;
                 grid[currentY][currentX] = currentNumber++;
             }
             // Go LEFT to the boundary.
-            while(currentX > originX - layer && currentNumber <= number) {
+            while((currentX > (originX - layer)) && (currentNumber <= number)) {
                 currentX--;
                 grid[currentY][currentX] = currentNumber++;
             }
             // Go UP to the boundary.
-            while(currentY > originY - layer && currentNumber <= number) {
+            while((currentY > (originY - layer)) && (currentNumber <= number)) {
                 currentY--;
                 grid[currentY][currentX] = currentNumber++;
             }
