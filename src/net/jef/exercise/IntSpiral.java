@@ -39,9 +39,9 @@ public class IntSpiral {
     }
 
     /**
-     * Take the number param and creates a the smallest grid required to hold all sequential numbers starting at
-     * zero and ending at the number supplied.  Counting starts in the middle position if possible and radiates
-     * out clockwise going the directional order of RIGHT, DOWN, LEFT, then UP.
+     * Takes the number param and creates the smallest grid required to hold all sequential numbers starting at
+     * zero and ending at the number supplied.  Counting starts in the center position, if possible and radiates
+     * out clockwise going in the directional order of RIGHT, DOWN, LEFT, then UP.
      *
      * @param number the number to count up to in a spiral fashion
      * @return       two-dimensional array containing the spiral grid
@@ -55,7 +55,7 @@ public class IntSpiral {
         final int[] gridDimensions = determineGridDimensions(number);
         final int width = gridDimensions[0];
         final int height = gridDimensions[1];
-        // Set the starting point or origin.  This is used and the anchor point for rotating around the grid based
+        // Set the starting point or origin.  This is the anchor point for rotating around the grid based
         // on what layer is being populated.
         // If the width or height is an even number, move the origin one position to the top or left (or both)
         // to keep the spiral from going off the edge.
@@ -94,7 +94,7 @@ public class IntSpiral {
                 currentY--;
                 grid[currentY][currentX] = currentNumber++;
             }
-            // Increment layer to spiral out to the next layer rows and columns on the next iteration.
+            // Increment layer to spiral out to the next layer of rows and columns on the next iteration.
             layer++;
         }
         return grid;
