@@ -1,7 +1,6 @@
 package net.jef.exercise;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -10,9 +9,6 @@ import org.junit.Test;
  * @author Jeffrey McKenzie
  */
 public class IntSpiralTest {
-
-    // Variable to hold instance for all tests.
-    IntSpiral s;
 
     //Some reference data for evaluating the results.
     final int[][] twoByOne = {
@@ -61,53 +57,51 @@ public class IntSpiralTest {
     };
     final String noMatchString = "Spiral Grid did not match expected.";
 
-    @Before
-    public void setUp() throws Exception {
-        s = new IntSpiral();
-    }
+
 
     @Test
     public void testPerfectSquares() {
         // 2 x 2
-        int[][] grid = s.spiral(3);
+        int[][] grid = IntSpiral.spiral(3);
         Assert.assertArrayEquals(noMatchString, twoByTwo, grid);
         // 3 x 3
-        grid = s.spiral(8);
+        grid = IntSpiral.spiral(8);
         Assert.assertArrayEquals(noMatchString, threeByThree, grid);
         // 5 x 5
-        grid = s.spiral(24);
+        grid = IntSpiral.spiral(24);
         Assert.assertArrayEquals(noMatchString, fiveByFive, grid);
     }
 
     @Test
     public void testRectangle() {
         // 3 x 2
-        int[][] grid = s.spiral(5);
+        int[][] grid = IntSpiral.spiral(5);
         Assert.assertArrayEquals(noMatchString, threeByTwo, grid);
         // 5 x 4
-        grid = s.spiral(19);
+        grid = IntSpiral.spiral(19);
         Assert.assertArrayEquals(noMatchString, fiveByFour, grid);
     }
 
     @Test
     public void testSmallNumbers() {
-        int[][] grid = s.spiral(1);
+        int[][] grid = IntSpiral.spiral(1);
         Assert.assertArrayEquals(noMatchString, twoByOne, grid);
     }
 
     @Test
     public void testIncompleteGrid() {
-        int[][] grid = s.spiral(22);
+        int[][] grid = IntSpiral.spiral(22);
         Assert.assertArrayEquals(noMatchString, incompleteFiveByFive, grid);
 
-        grid = s.spiral(17);
+        grid = IntSpiral.spiral(17);
         Assert.assertArrayEquals(noMatchString, incompleteFiveByFour, grid);
     }
 
 
     @Test(expected=IllegalArgumentException.class)
     public void testIllegalArguments() {
-        int[][] grid = s.spiral(0);
+        int[][] grid = IntSpiral.spiral(0);
+        grid[0][0] = 0;  // Added to eliminate 'not used' warning.
     }
 
     /**  excluded due to the verbosity of the expected result definition.

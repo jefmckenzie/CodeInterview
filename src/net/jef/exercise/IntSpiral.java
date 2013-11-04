@@ -27,7 +27,7 @@ public class IntSpiral {
      * @return       an array of two integers that are the X and Y of the grid
      * @throws IllegalArgumentException If number is not greater than zero
      */
-    private int[] determineGridDimensions(int number) {
+    private static int[] determineGridDimensions(int number) {
         if(number < 1) {
             throw new IllegalArgumentException("Number must be greater than zero to determine grid size.");
         }
@@ -47,7 +47,7 @@ public class IntSpiral {
      * @return       two-dimensional array containing the spiral grid
      * @throws IllegalArgumentException If the number is not greater than zero
      */
-    public int[][] spiral(int number) {
+    public static int[][] spiral(int number) {
         if(number <= 0) {
             throw new IllegalArgumentException("Creating a spiral of integers requires a number greater than zero");
         }
@@ -55,8 +55,7 @@ public class IntSpiral {
         final int[] gridDimensions = determineGridDimensions(number);
         final int width = gridDimensions[0];
         final int height = gridDimensions[1];
-        // Set the starting point or origin.  This is the anchor point for rotating around the grid based
-        // on what layer is being populated.
+        // Set the starting point for rotating around the grid based on what layer is being populated.
         // If the width or height is an even number, move the origin one position to the top or left (or both)
         // to keep the spiral from going off the edge.
         final int originX = (width % 2 == 0) ? ((width / 2) - 1) : (width / 2);
@@ -67,9 +66,7 @@ public class IntSpiral {
         int layer = 1;
         // Create the grid as a two dimensional array of int's.
         int[][] grid = new int[height][width];
-        //  Populate the origin with 0.
         grid[currentY][currentX] = 0;
-        // Start the iterations at 1 and increment until the number is reached.
         int currentNumber = 1;
         // Move around the grid clockwise with directions moving from RIGHT to DOWN to LEFT to UP.
         while(currentNumber <= number) {
@@ -105,7 +102,7 @@ public class IntSpiral {
      *
      * @param spiralGrid two-dimensional array containing the spiral grid
      */
-    public void printSpiral(int[][] spiralGrid) {
+    public static void printSpiral(int[][] spiralGrid) {
         for(int[] row : spiralGrid){
             for(int element : row) {
                 System.out.print(element + "\t");
@@ -115,11 +112,10 @@ public class IntSpiral {
     }
 
     public static void main(String[] args) {
-        //  Test driver to view output on standard output.
-        IntSpiral ns = new IntSpiral();
+        //  Test driver to view output on standard output
         for(int i = 1; i < 100; i++) {
-            int[][] spiralGrid = ns.spiral(i);
-            ns.printSpiral(spiralGrid);
+            int[][] spiralGrid = spiral(i);
+            printSpiral(spiralGrid);
             System.out.println("********************");
         }
      }
